@@ -109,3 +109,24 @@ class Pickup(models.Model):
 
     def __str__(self):
         return f"Pickup for Booking {self.booking.id}"
+
+
+class CustomsClearanceExport(models.Model):
+    booking = models.OneToOneField(Booking, on_delete=models.CASCADE, related_name='export_clearance')
+    clearance_status = models.CharField(max_length=50, choices=[('Pending', 'Pending'), ('Cleared', 'Cleared'), ('Rejected', 'Rejected')], default='Pending')
+    export_documentation = models.TextField(help_text="List of required export documents")
+    customs_officer_name = models.CharField(max_length=100, null=True, blank=True)
+    clearance_date = models.DateField(null=True, blank=True)
+
+    def __str__(self):
+        return f"Export Customs Clearance for Booking {self.booking.id} - Status: {self.clearance_status}"
+
+class CustomsClearanceImport(models.Model):
+    booking = models.OneToOneField(Booking, on_delete=models.CASCADE, related_name='import_clearance')
+    clearance_status = models.CharField(max_length=50, choices=[('Pending', 'Pending'), ('Cleared', 'Cleared'), ('Rejected', 'Rejected')], default='Pending')
+    import_documentation = models.TextField(help_text="List of required import documents")
+    customs_officer_name = models.CharField(max_length=100, null=True, blank=True)
+    clearance_date = models.DateField(null=True, blank=True)
+
+    def __str__(self):
+        return f"Import Customs Clearance for Booking {self.booking.id} - Status: {self.clearance_status}"

@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h2>Import Customs Clearance Details</h2>
+  <p>Status: {{ clearance.clearance_status }}</p>
+  <p>Documentation: {{ clearance.import_documentation }}</p>
+  <p>Officer: {{ clearance.customs_officer_name }}</p>
+  <p>Clearance Date: {{ clearance.clearance_date }}</p>
+{% endblock %}

@@ -14,4 +14,8 @@ urlpatterns = [
     path('pickup/<int:pickup_id>/', views.pickup_detail, name='pickup_detail'),
     path('sorting_hub/', views.sorting_hub, name='sorting_hub'),
     path('sort_items/', views.sort_items, name='sort_items'),
+    path('booking/<int:booking_id>/create_export_clearance/', views.create_export_clearance, name='create_export_clearance'),
+    path('booking/<int:booking_id>/create_import_clearance/', views.create_import_clearance, name='create_import_clearance'),
+    path('export_clearance/<int:clearance_id>/', views.export_clearance_detail, name='export_clearance_detail'),
+    path('import_clearance/<int:clearance_id>/', views.import_clearance_detail, name='import_clearance_detail'),
 ]

@@ -9,6 +9,10 @@ from .forms import BookingForm, PickupForm
 from django.http import HttpResponse
 from .forms import SortingForm  
 from django.contrib import messages
+from .forms import CustomsClearanceExportForm, CustomsClearanceImportForm
+from .models import Booking, CustomsClearanceExport, CustomsClearanceImport
+
+
 
 class OrderListView(ListCreateAPIView):
     permission_classes = [IsAuthenticated]
@@ -72,6 +76,8 @@ def booking_detail(request, booking_id):
         'pickup_form': pickup_form,
     })
 
+
+
 def create_pickup(request, booking_id):
     booking = Booking.objects.get(id=booking_id)
     if request.method == 'POST':
@@ -88,6 +94,9 @@ def create_pickup(request, booking_id):
 def pickup_detail(request, pickup_id):
     pickup = Pickup.objects.get(id=pickup_id)
     return render(request, 'couriers/pickup_detail.html', {'pickup': pickup})
+
+
+
 
 def sorting_hub(request):
     if request.method == 'POST':
@@ -106,16 +115,55 @@ def sort_items(request):
     sorted_items = request.session.get('sorted_items', [])
     return HttpResponse(f'Sorted Items: {sorted_items}')
 
-def home_view(request):
 
+
+
+def create_export_clearance(request, booking_id):
+    booking = Booking.objects.get(id=booking_id)
+    if request.method == 'POST':
+        form = CustomsClearanceExportForm(request.POST)
+        if form.is_valid():
+            customs_clearance = form.save(commit=False)
+            customs_clearance.booking = booking  # Link clearance to the booking
+            customs_clearance.save()
+            messages.success(request, 'Customs clearance (Export) has been processed successfully!')
+            return redirect('export_clearance_detail', clearance_id=customs_clearance.id)
+    else:
+        form = CustomsClearanceExportForm()
+    return render(request, 'couriers/create_export_clearance.html', {'form': form, 'booking': booking})
+
+def create_import_clearance(request, booking_id):
+    booking = Booking.objects.get(id=booking_id)
+    if request.method == 'POST':
+        form = CustomsClearanceImportForm(request.POST)
+        if form.is_valid():
+            customs_clearance = form.save(commit=False)
+            customs_clearance.booking = booking  # Link clearance to the booking
+            customs_clearance.save()
+            messages.success(request, 'Customs clearance (Import) has been processed successfully!')
+            return redirect('import_clearance_detail', clearance_id=customs_clearance.id)
+    else:
+        form = CustomsClearanceImportForm()
+    return render(request, 'couriers/create_import_clearance.html', {'form': form, 'booking': booking})
+
+def export_clearance_detail(request, clearance_id):
+    clearance = CustomsClearanceExport.objects.get(id=clearance_id)
+    return render(request, 'couriers/export_clearance_detail.html', {'clearance': clearance})
+
+def import_clearance_detail(request, clearance_id):
+    clearance = CustomsClearanceImport.objects.get(id=clearance_id)
+    return render(request, 'couriers/import_clearance_detail.html', {'clearance': clearance})
+
+
+
+
+
+
+def home_view(request):
     return render(request, 'couriers/home.html')
 
-
 def about_view(request):
-
     return render(request, 'couriers/about.html')
 
-
 def contact_view(request):
-
     return render(request, 'couriers/contact.html')
