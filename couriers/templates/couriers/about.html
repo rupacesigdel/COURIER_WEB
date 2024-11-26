@@ -7,23 +7,78 @@
         margin-top: 20px;
     }
     .container{
-        min-height: 120vh;
+        min-height: 30vh;
       }
+
+    .circle-container p {
+        font-size: 1.1rem;
+        line-height: 1.5;
+    }
+    
+    .carousel-inner h2 {
+        font-weight: bold;
+        color: #0000FF;
+    }
+    
+    .carousel-inner p {
+        font-size: 2rem;
+        color: #800080;
+    }
 </style>
+<script>
+    $(document).ready(function () {
+        $('#chooseUsCarousel').carousel({
+            interval: 30
+        });
+    });
+</script>
+
 {% endblock css %}
 
 {% block content %}
 <div class="container">
-    <h1 class="mt-4">About Us</h1>
-    <p class="lead">We are a trusted courier service provider, committed to delivering your packages with speed and care.</p>
-    <hr>
-    <h2>Our Mission</h2>
-    <p>To make package delivery hassle-free and secure, ensuring customer satisfaction every step of the way.</p>
-    <h2>Why Choose Us?</h2>
-    <ul>
-        <li>Reliable delivery network</li>
-        <li>Affordable pricing</li>
-        <li>Real-time package tracking</li>
-    </ul>
-</div>
+    <div class="container text-center my-5">
+        <h1>About Us</h1>
+        <div class="rounded-circle p-5 mx-auto" style="background-color: #f8f9fa; width: 250px; height: 250px; display: flex; align-items: center; justify-content: center; border: 2px solid #28a745;">
+            <p style="font-size: 1.1rem; color: #343a40;">
+                We are a trusted courier service provider delivering excellence in logistics and transportation.
+            </p>
+        </div>
+    </div>
+
+    <div class="container text-center my-5">
+        <h1>Our Mission</h1>
+        <div class="circle-container mx-auto" style="position: relative; width: 300px; height: 300px; border-radius: 50%; background: linear-gradient(135deg, #28a745, #218838); color: white; display: flex; align-items: center; justify-content: center;">
+            <p style="text-align: center; padding: 20px; font-size: 1.2rem;">
+                To provide reliable, fast, and secure delivery services, ensuring customer satisfaction with every shipment.
+            </p>
+        </div>
+    </div>
+
+<div class="container text-center my-5">
+    <h1>Why Choose Us</h1>
+    <div id="chooseUsCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <h2>Reliable Services</h2>
+                <p>We guarantee timely deliveries with utmost care for your packages.</p>
+            </div>
+            <div class="carousel-item">
+                <h2>Affordable Pricing</h2>
+                <p>Our services are priced competitively to suit your budget.</p>
+            </div>
+            <div class="carousel-item">
+                <h2>Customer Support</h2>
+                <p>Our dedicated support team is always here to assist you.</p>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#chooseUsCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#chooseUsCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
 {% endblock %}
