@@ -2,7 +2,7 @@ from rest_framework.generics import ListCreateAPIView, RetrieveUpdateAPIView
 from rest_framework.permissions import IsAuthenticated
 from .models import Order
 from .serializers import OrderSerializer
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from rest_framework.exceptions import PermissionDenied
 from .models import Booking, Pickup
 from .forms import BookingForm, PickupForm
@@ -11,6 +11,8 @@ from .forms import SortingForm
 from django.contrib import messages
 from .forms import CustomsClearanceExportForm, CustomsClearanceImportForm
 from .models import Booking, CustomsClearanceExport, CustomsClearanceImport
+from .forms import LastMileDeliveryForm
+from .models import LastMileDelivery, Booking
 
 
 
@@ -79,17 +81,18 @@ def booking_detail(request, booking_id):
 
 
 def create_pickup(request, booking_id):
-    booking = Booking.objects.get(id=booking_id)
+    booking = get_object_or_404(Booking, id=booking_id)
     if request.method == 'POST':
         form = PickupForm(request.POST)
         if form.is_valid():
             pickup = form.save(commit=False)
-            pickup.booking = booking  # Link pickup to the booking
+            pickup.booking = booking
             pickup.save()
-            return redirect('pickup_detail', pickup_id=pickup.id)  # Redirect to pickup detail
+            return redirect('pickup_detail', pickup_id=pickup.id)
     else:
         form = PickupForm()
     return render(request, 'couriers/create_pickup.html', {'form': form, 'booking': booking})
+
 
 def pickup_detail(request, pickup_id):
     pickup = Pickup.objects.get(id=pickup_id)
@@ -124,7 +127,7 @@ def create_export_clearance(request, booking_id):
         form = CustomsClearanceExportForm(request.POST)
         if form.is_valid():
             customs_clearance = form.save(commit=False)
-            customs_clearance.booking = booking  # Link clearance to the booking
+            customs_clearance.booking = booking  
             customs_clearance.save()
             messages.success(request, 'Customs clearance (Export) has been processed successfully!')
             return redirect('export_clearance_detail', clearance_id=customs_clearance.id)
@@ -138,7 +141,7 @@ def create_import_clearance(request, booking_id):
         form = CustomsClearanceImportForm(request.POST)
         if form.is_valid():
             customs_clearance = form.save(commit=False)
-            customs_clearance.booking = booking  # Link clearance to the booking
+            customs_clearance.booking = booking 
             customs_clearance.save()
             messages.success(request, 'Customs clearance (Import) has been processed successfully!')
             return redirect('import_clearance_detail', clearance_id=customs_clearance.id)
@@ -155,6 +158,36 @@ def import_clearance_detail(request, clearance_id):
     return render(request, 'couriers/import_clearance_detail.html', {'clearance': clearance})
 
 
+
+
+
+def create_last_mile_delivery(request, booking_id):
+    booking = Booking.objects.get(id=booking_id)
+    if request.method == 'POST':
+        form = LastMileDeliveryForm(request.POST)
+        if form.is_valid():
+            last_mile_delivery = form.save(commit=False)
+            last_mile_delivery.booking = booking
+            last_mile_delivery.save()
+            return redirect('last_mile_delivery_detail', delivery_id=last_mile_delivery.id)
+    else:
+        form = LastMileDeliveryForm()
+    return render(request, 'couriers/create_last_mile_delivery.html', {'form': form, 'booking': booking})
+
+def last_mile_delivery_detail(request, delivery_id):
+    delivery = LastMileDelivery.objects.get(id=delivery_id)
+    return render(request, 'couriers/last_mile_delivery_detail.html', {'delivery': delivery})
+
+def update_delivery_status(request, delivery_id):
+    delivery = LastMileDelivery.objects.get(id=delivery_id)
+    if request.method == 'POST':
+        form = LastMileDeliveryForm(request.POST, instance=delivery)
+        if form.is_valid():
+            form.save()
+            return redirect('last_mile_delivery_detail', delivery_id=delivery.id)
+    else:
+        form = LastMileDeliveryForm(instance=delivery)
+    return render(request, 'couriers/update_delivery_status.html', {'form': form, 'delivery': delivery})
 
 
 

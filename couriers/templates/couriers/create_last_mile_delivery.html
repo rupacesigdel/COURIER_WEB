@@ -1,0 +1,19 @@
+{% extends 'couriers/base.html' %}
+{% block css %}
+<style>
+  #chat-reply {
+      margin-top: 20px;
+  }
+  .container{
+      min-height: 120vh;
+    }
+</style>
+{% endblock css %}
+{% block content %}
+  <h2>Last-Mile Delivery for Booking {{ booking.id }}</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Create Delivery</button>
+  </form>
+{% endblock %}

@@ -1,7 +1,16 @@
-{% extends 'base.html' %}
+{% extends 'couriers/base.html' %}
 
 {% block title %}Pickup Details{% endblock %}
-
+{% block css %}
+<style>
+    #chat-reply {
+        margin-top: 20px;
+    }
+    .container{
+        min-height: 120vh;
+      }
+</style>
+{% endblock css %}
 {% block content %}
     <h2>Pickup Details</h2>
     <p><strong>Pickup Address:</strong> {{ pickup.pickup_address }}</p>

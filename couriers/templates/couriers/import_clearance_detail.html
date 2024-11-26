@@ -1,4 +1,14 @@
-{% extends 'base.html' %}
+{% extends 'couriers/base.html' %}
+{% block css %}
+<style>
+    #chat-reply {
+        margin-top: 20px;
+    }
+    .container{
+        min-height: 120vh;
+      }
+</style>
+{% endblock css %}
 {% block content %}
   <h2>Import Customs Clearance Details</h2>
   <p>Status: {{ clearance.clearance_status }}</p>

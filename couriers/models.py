@@ -3,6 +3,7 @@ from django.contrib.auth.models import AbstractUser
 from datetime import timedelta
 from django.core.exceptions import ValidationError
 from enum import Enum
+from django.conf import settings
 
 
 class CustomerManager(models.Manager):
@@ -130,3 +131,16 @@ class CustomsClearanceImport(models.Model):
 
     def __str__(self):
         return f"Import Customs Clearance for Booking {self.booking.id} - Status: {self.clearance_status}"
+
+
+class LastMileDelivery(models.Model):
+    booking = models.OneToOneField(Booking, on_delete=models.CASCADE, related_name='last_mile_delivery')
+    courier = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    delivery_status = models.CharField(max_length=50, choices=[('In Transit', 'In Transit'), ('Out for Delivery', 'Out for Delivery'), ('Delivered', 'Delivered')], default='In Transit')
+    estimated_delivery_time = models.DateTimeField(null=True, blank=True)
+    delivery_address = models.CharField(max_length=255)
+    tracking_number = models.CharField(max_length=100, unique=True)
+    delivered_at = models.DateTimeField(null=True, blank=True)
+
+    def __str__(self):
+        return f"Delivery Status for Booking {self.booking.id} - {self.delivery_status}"

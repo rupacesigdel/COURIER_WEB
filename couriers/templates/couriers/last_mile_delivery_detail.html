@@ -1,0 +1,22 @@
+{% extends 'couriers/base.html' %}
+{% block css %}
+<style>
+  #chat-reply {
+      margin-top: 20px;
+  }
+  .container{
+      min-height: 120vh;
+    }
+</style>
+{% endblock css %}
+{% block content %}
+  <h2>Last-Mile Delivery Details</h2>
+  <p>Status: {{ delivery.delivery_status }}</p>
+  <p>Courier: {{ delivery.courier.username }}</p>
+  <p>Delivery Address: {{ delivery.delivery_address }}</p>
+  <p>Tracking Number: {{ delivery.tracking_number }}</p>
+  <p>Estimated Delivery Time: {{ delivery.estimated_delivery_time }}</p>
+  {% if delivery.delivered_at %}
+    <p>Delivered At: {{ delivery.delivered_at }}</p>
+  {% endif %}
+{% endblock %}

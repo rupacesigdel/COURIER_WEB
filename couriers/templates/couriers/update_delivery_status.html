@@ -10,10 +10,10 @@
 </style>
 {% endblock css %}
 {% block content %}
-  <h2>Customs Clearance (Export) for Booking {{ booking.id }}</h2>
+  <h2>Update Delivery Status for Booking {{ delivery.booking.id }}</h2>
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Submit</button>
+    <button type="submit">Update Status</button>
   </form>
 {% endblock %}

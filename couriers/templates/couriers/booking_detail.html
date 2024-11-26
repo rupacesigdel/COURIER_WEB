@@ -1,19 +1,48 @@
 {% extends 'couriers/base.html' %}
 
 {% block title %}Booking Details{% endblock %}
-
+{% block css %}
+<style>
+    #chat-reply {
+        margin-top: 20px;
+    }
+    .container{
+        min-height: 120vh;
+      }
+</style>
+{% endblock css %}
 {% block content %}
-    <h2>Booking Details</h2>
-    <p><strong>Customer Name:</strong> {{ booking.customer_name }}</p>
-    <p><strong>Customer Email:</strong> {{ booking.customer_email }}</p>
-    <p><strong>Customer Phone:</strong> {{ booking.customer_phone }}</p>
-    <p><strong>Delivery Address:</strong> {{ booking.delivery_address }}</p>
-    <p><strong>Status:</strong> {{ booking.get_status_display }}</p>
+    <div class="container">
+        <div class="card p-3">
+            <h2>Booking Details</h2>
+            <p><strong>Customer Name:</strong> {{ booking.customer_name }}</p>
+            <p><strong>Customer Email:</strong> {{ booking.customer_email }}</p>
+            <p><strong>Customer Phone:</strong> {{ booking.customer_phone }}</p>
+            <p><strong>Delivery Address:</strong> {{ booking.delivery_address }}</p>
+            <p><strong>Status:</strong> {{ booking.get_status_display }}</p>
+        </div>
 
-    <h3>Create Pickup Request</h3>
-    <form method="POST">
-        {% csrf_token %}
-        {{ pickup_form.as_p }}
-        <button type="submit" class="btn btn-primary">Request Pickup</button>
-    </form>
+        <div class="card p-3 mt-4">
+            <h3>Create Pickup Request</h3>
+            {% if pickup_form.errors %}
+                <div class="alert alert-danger">
+                    <strong>There were errors with your submission:</strong>
+                    <ul>
+                        {% for field, errors in pickup_form.errors.items %}
+                            {% for error in errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+            <form method="POST">
+                {% csrf_token %}
+                {{ pickup_form.as_p }}
+                <button type="submit" class="btn btn-primary">Request Pickup</button>
+            </form>
+        </div>
+
+        <a href="{% url 'home' %}" class="btn btn-secondary mt-3">Back to Home</a>
+    </div>
 {% endblock %}

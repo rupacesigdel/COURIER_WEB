@@ -1,6 +1,7 @@
 from django import forms
 from .models import Booking, Pickup
 from .models import CustomsClearanceExport, CustomsClearanceImport
+from .models import LastMileDelivery
 
 class BookingForm(forms.ModelForm):
     class Meta:
@@ -33,3 +34,10 @@ class CustomsClearanceImportForm(forms.ModelForm):
     class Meta:
         model = CustomsClearanceImport
         fields = ['clearance_status', 'import_documentation', 'customs_officer_name', 'clearance_date']
+
+
+
+class LastMileDeliveryForm(forms.ModelForm):
+    class Meta:
+        model = LastMileDelivery
+        fields = ['courier', 'delivery_status', 'estimated_delivery_time', 'delivery_address', 'tracking_number', 'delivered_at']
