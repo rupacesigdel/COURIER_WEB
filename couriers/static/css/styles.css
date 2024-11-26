@@ -1,0 +1,29 @@
+
+body {
+    background-color: #f4f4f4;
+}
+
+.navbar {
+    background-color: #28a745 !important;
+}
+
+.navbar a {
+    color: white !important;
+}
+
+.navbar a:hover {
+    color: #f8f9fa !important;
+}
+
+.footer-green {
+    background-color: #28a745;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+}
+
+.footer-green a {
+    color: white;
+}

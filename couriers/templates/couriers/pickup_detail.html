@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block title %}Pickup Details{% endblock %}
+
+{% block content %}
+    <h2>Pickup Details</h2>
+    <p><strong>Pickup Address:</strong> {{ pickup.pickup_address }}</p>
+    <p><strong>Pickup Time:</strong> {{ pickup.pickup_time }}</p>
+    <p><strong>Status:</strong> {% if pickup.is_pickup_complete %}Completed{% else %}Pending{% endif %}</p>
+{% endblock %}

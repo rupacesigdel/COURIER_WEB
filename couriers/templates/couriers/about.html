@@ -1,0 +1,26 @@
+{% extends 'couriers/base.html' %}
+{% block aboutactive %}active{% endblock aboutactive %}
+{% block title %}About Us - Courier{% endblock %}
+{% block css %}
+<style>
+    #chat-reply {
+        margin-top: 20px;
+    }
+</style>
+{% endblock css %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mt-4">About Us</h1>
+    <p class="lead">We are a trusted courier service provider, committed to delivering your packages with speed and care.</p>
+    <hr>
+    <h2>Our Mission</h2>
+    <p>To make package delivery hassle-free and secure, ensuring customer satisfaction every step of the way.</p>
+    <h2>Why Choose Us?</h2>
+    <ul>
+        <li>Reliable delivery network</li>
+        <li>Affordable pricing</li>
+        <li>Real-time package tracking</li>
+    </ul>
+</div>
+{% endblock %}

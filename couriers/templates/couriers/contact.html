@@ -1,0 +1,40 @@
+{% extends 'couriers/base.html' %}
+{% block contactactive %}active{% endblock contactactive %}
+{% block title %}Contact Us - Courier{% endblock %}
+{% block css %}
+<style>
+    #chat-reply {
+        margin-top: 20px;
+    }
+</style>
+{% endblock css %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mt-4">Contact Us</h1>
+    <p class="lead">Have questions? We'd love to hear from you!</p>
+    <hr>
+    <h2>Our Contact Information</h2>
+    <p><strong>Email:</strong> support@courierservice.com</p>
+    <p><strong>Phone:</strong> +1 (555) 123-4567</p>
+    <p><strong>Address:</strong> 123 Courier Lane, Cityville, State, 45678</p>
+
+    <h2>Contact Form</h2>
+    <form method="post" action="/contact/">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+        <div class="mb-3">
+            <label for="message" class="form-label">Message</label>
+            <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'couriers/base.html' %}
+{% block homeactive %}active{% endblock homeactive %}
+{% block title %}Home - Courier{% endblock %}
+{% block css %}
+<style>
+    #chat-reply {
+        margin-top: 20px;
+    }
+</style>
+{% endblock css %}
+
+{% block content %}
+<div class="jumbotron">
+    <h1 class="display-4">Welcome to Courier</h1>
+    <p class="lead">Deliver your packages with ease and reliability.</p>
+    <a class="btn btn-primary btn-lg" href="/about/" role="button">Learn More</a>
+</div>
+{% endblock %}
