@@ -20,6 +20,10 @@ A comprehensive Django-based web application to manage courier services efficien
 
 ---
 
+## Demo Video
+[Watch the demo video](https://github.com/user-attachments/assets/9f5d865a-2582-49c8-a07b-02e896bcfff1)
+
+---
 ## Features
 - User-Friendly Interface: Simplified management of courier-related tasks with an intuitive design.
 - Bookings: Create and manage bookings for parcels.
