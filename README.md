@@ -59,20 +59,37 @@ A comprehensive Django-based web application to manage courier services efficien
 
 ## Project Structure
 courier-management-system/
-- ├── courier/
+- ├── Courier/
 - │   ├── settings.py
 - │   ├── urls.py
 - │   ├── wsgi.py
-- ├── templates/
-- │   ├── couriers/
-- │   │   ├── base.html
-- │   │   ├── create_booking.html
-- │   │   ├── sorting_hub.html
-- │   │   └── ...
+- ├── couriers/
+- │   ├── viesw.py
+- │   ├── urls.py
+- │   ├── forms.py
+- │   ├── serializers.py
+- │   ├── tests.py
+- │   ├── models.py
+- │   ├── apps.py
+- |   ├── templates/
+- │      ├── couriers/
+- │      ├── base.html
+- │      ├── contact.html
+- │      ├── home.html
+- │      ├── update_delivery_status.html
+- │      ├── create_booking.html
+- │      ├── create_import.html
+- │      ├── import_clearence_detail.html
+- │      ├── create_export.html
+- │      ├── create_last_mile.html
+- │      ├── sorting_hub.html
+- │      └── pickup_detail.html
+- │      └── create_pickup.html
 - ├── static/
 - │   ├── css/
+- │      ├── styles.css
 - │   ├── js/
-- │   └── images/
+- │      ├── scripts.js
 - ├── manage.py
 - └── daytona.yml
 
