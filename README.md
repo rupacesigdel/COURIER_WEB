@@ -97,9 +97,11 @@ courier-management-system/
 
 
 ## Setup and Installation
+
+## Daytona Integration
 1. **Clone the Repository**:
   ```sh
-  git clone https://github.com/your-username/courier-management-system.git
+  git clone https://github.com/rupacesigdel/courier-management-system.git
   cd courier-management-system
   ```
 2. **Install Daytona**:
@@ -111,32 +113,28 @@ Run the following command to install Daytona:
 3. **Configure Daytona**:
 Initialize Daytona in the project directory:
   ```sh
-  daytona init
-  Edit the daytona.yml file:
-  
-  yaml
-  Copy code
-  services:
-    django:
-      image: python:3.9
-      volumes:
-        - .:/app
-      working_dir: /app
-      environment:
-        - DEBUG=True
-        - SECRET_KEY=your-secret-key
-        - GOOGLE_MAPS_API_KEY=your-google-maps-api-key
-      ports:
-        - "8000:8000"
-      command: python manage.py runserver 0.0.0.0:8000
-    postgres:
-      image: postgres:13
-      environment:
-        - POSTGRES_USER=postgres
-        - POSTGRES_PASSWORD=yourpassword
-        - POSTGRES_DB=courier
-      ports:
-        - "5432:5432"
+services:  
+  django:  
+    image: python:3.9  
+    volumes:  
+      - .:/app  
+    working_dir: /app  
+    environment:  
+      - DEBUG=True  
+      - SECRET_KEY=your-secret-key  
+      - GOOGLE_MAPS_API_KEY=your-google-maps-api-key  
+    ports:  
+      - "8000:8000"  
+    command: python manage.py runserver 0.0.0.0:8000  
+  postgres:  
+    image: postgres:13  
+    environment:  
+      - POSTGRES_USER=postgres  
+      - POSTGRES_PASSWORD=yourpassword  
+      - POSTGRES_DB=courier  
+    ports:  
+      - "5432:5432"  
+
   ```
 4. **Start the Development Environment**:
   ```sh
@@ -157,28 +155,7 @@ Visit http://localhost:8000 in your browser.
 
 ---
 
-## Daytona Integration
-Daytona simplifies the development process by managing containerized environments.
-Key Daytona commands:
 
-**Start the Environment*8: 
-  ```sh
-  daytona up
-  ```
-*8Stop the Environment**: 
-  ```sh
-  daytona down
-  ```
-**Run a Command**: 
-  ```sh
-  daytona exec <service> <command>
-  ```
-**Check migrations**:
-  ```sh
-  daytona exec django python manage.py showmigrations
-  ```
-
----
 
 ## Usage
 - Create Bookings: Add new courier bookings via the booking form.
