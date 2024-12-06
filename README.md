@@ -76,12 +76,9 @@ courier-management-system/
 - │      ├── base.html
 - │      ├── contact.html
 - │      ├── home.html
-- │      ├── update_delivery_status.html
 - │      ├── create_booking.html
 - │      ├── create_import.html
-- │      ├── import_clearence_detail.html
 - │      ├── create_export.html
-- │      ├── create_last_mile.html
 - │      ├── sorting_hub.html
 - │      └── pickup_detail.html
 - │      └── create_pickup.html
@@ -101,14 +98,14 @@ courier-management-system/
 ## Daytona Integration
 1. **Clone the Repository**:
   ```sh
-  git clone https://github.com/rupacesigdel/courier-management-system.git
-  cd courier-management-system
+  git clone https://github.com/rupacesigdel/COURIER_WEB.git
+  cd COURIER_WEB
   ```
 2. **Install Daytona**:
 Run the following command to install Daytona:
 
   ```sh
-  curl -fsSL https://get.daytona.dev | bash
+  curl -fsSL https://get.daytona.dev
   ```
 3. **Configure Daytona**:
 Initialize Daytona in the project directory:
