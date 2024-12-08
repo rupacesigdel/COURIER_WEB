@@ -1,6 +1,6 @@
-<p align="center">
+<h1 align="center" >
   Python/Django - Courier Management System 🚚📦
-</p>
+</h1>
 
 [COURIER_WEB](https://github.com/rupacesigdel/COURIER_WEB.git) is a  comprehensive Django-based web application to manage courier services efficiently, including bookings, sorting hubs, pickups, and delivery processes. The project integrates Google Maps for enhanced location management and uses Daytona for a streamlined development environment.
 
