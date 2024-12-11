@@ -77,11 +77,15 @@ Initialize the project directly with Daytona:
   ```sh
   daytona create https://github.com/rupacesigdel/COURIER_WEB.git
   ```
-4. **Start the Development Environment**:
+4. **Start the Environment**:
   ```sh
   daytona up
   ```
-5. **Access the Application**:
+5. **Run the Application: Start the Django server:**:
+   ```sh
+   python manage.py runserver
+   ```
+6. **Access the Application**:
 Visit http://localhost:8000 in your browser.
 
 ---
