@@ -1,20 +1,17 @@
-# Courier Management System 🚚📦
-A comprehensive Django-based web application to manage courier services efficiently, including bookings, sorting hubs, pickups, and delivery processes. The project integrates Google Maps for enhanced location management and uses Daytona for a streamlined development environment.
+<h1 align="center" >
+  Python/Django - Courier Management System 🚚📦
+</h1>
+
+[COURIER_WEB](https://github.com/rupacesigdel/COURIER_WEB.git) is a  comprehensive Django-based web application to manage courier services efficiently, including bookings, sorting hubs, pickups, and delivery processes. The project integrates Google Maps for enhanced location management and uses Daytona for a streamlined development environment.
 
 ---
 
 ## Contents
 - [Features](#features)
-- [Project Structure](#project-structure)
 - [Demo Video](#demo-video)
-- [Tech Stack](#tech-stack)
-- [Setup and Installation](#setup-and-installation)
-  - [Prerequisites](#prerequisites)
-  - [Daytona Integration](#daytona-integration)
-  - [Google Maps Integration](#google-maps-integration)
 - [Usage](#usage)
+- [Dependencies](#dependencies)
 - [Contributing](#contributing)
-- [Fork the repository](#fork-the-repository)
 - [License](#license)
 - [Acknowledgments](#acknowledgments)
 
@@ -34,7 +31,7 @@ A comprehensive Django-based web application to manage courier services efficien
 - Responsive Design: Works seamlessly on desktops, tablets, and mobile devices.
 - Environment Management with Daytona: Simplifies development and deployment with pre-configured containerized environments.
 
-## Tech Stack
+## Dependencies
 - Frontend: HTML5, CSS3, Bootstrap
 - Backend: Python 3.9+, Django Framework
 - Database: PostgreSQL / SQLite
@@ -57,50 +54,17 @@ A comprehensive Django-based web application to manage courier services efficien
 
 ---
 
-## Project Structure
-courier-management-system/
-- ├── Courier/
-- │   ├── settings.py
-- │   ├── urls.py
-- │   ├── wsgi.py
-- ├── couriers/
-- │   ├── viesw.py
-- │   ├── urls.py
-- │   ├── forms.py
-- │   ├── serializers.py
-- │   ├── tests.py
-- │   ├── models.py
-- │   ├── apps.py
-- |   ├── templates/
-- │      ├── couriers/
-- │      ├── base.html
-- │      ├── contact.html
-- │      ├── home.html
-- │      ├── update_delivery_status.html
-- │      ├── create_booking.html
-- │      ├── create_import.html
-- │      ├── import_clearence_detail.html
-- │      ├── create_export.html
-- │      ├── create_last_mile.html
-- │      ├── sorting_hub.html
-- │      └── pickup_detail.html
-- │      └── create_pickup.html
-- ├── static/
-- │   ├── css/
-- │      ├── styles.css
-- │   ├── js/
-- │      ├── scripts.js
-- ├── manage.py
-- └── daytona.yml
+## Daytona
+- Works with any Git platform: GitHub, GitLab, Bitbucket.
+- Compatible with any IDE: Vim, VS Code, JetBrains IDEs.
+- Runs anywhere: Localhost, AWS, Azure, GCP, Digital Ocean.
+- Flexible and efficient for modern development workflows.
 
----
-
-
-## Setup and Installation
+## Installation
 1. **Clone the Repository**:
   ```sh
-  git clone https://github.com/your-username/courier-management-system.git
-  cd courier-management-system
+  git clone https://github.com/rupacesigdel/COURIER_WEB.git
+  cd COURIER_WEB
   ```
 2. **Install Daytona**:
 Run the following command to install Daytona:
@@ -108,77 +72,20 @@ Run the following command to install Daytona:
   ```sh
   curl -fsSL https://get.daytona.dev | bash
   ```
-3. **Configure Daytona**:
-Initialize Daytona in the project directory:
+3. **Create the Daytona Environment**:
+Initialize the project directly with Daytona:
   ```sh
-  daytona init
-  Edit the daytona.yml file:
-  
-  yaml
-  Copy code
-  services:
-    django:
-      image: python:3.9
-      volumes:
-        - .:/app
-      working_dir: /app
-      environment:
-        - DEBUG=True
-        - SECRET_KEY=your-secret-key
-        - GOOGLE_MAPS_API_KEY=your-google-maps-api-key
-      ports:
-        - "8000:8000"
-      command: python manage.py runserver 0.0.0.0:8000
-    postgres:
-      image: postgres:13
-      environment:
-        - POSTGRES_USER=postgres
-        - POSTGRES_PASSWORD=yourpassword
-        - POSTGRES_DB=courier
-      ports:
-        - "5432:5432"
+  daytona create https://github.com/rupacesigdel/COURIER_WEB.git
   ```
 4. **Start the Development Environment**:
   ```sh
   daytona up
   ```
-5. **Apply Migrations**:
-  ```sh
-  daytona exec django python manage.py migrate
-  ```
-6. **Create a Superuser**:
-  ```sh
-  daytona exec django python manage.py createsuperuser
-  ```
-7. **Access the Application**:
-```sh  
+5. **Access the Application**:
 Visit http://localhost:8000 in your browser.
-```
 
 ---
 
-## Daytona Integration
-Daytona simplifies the development process by managing containerized environments.
-Key Daytona commands:
-
-**Start the Environment*8: 
-  ```sh
-  daytona up
-  ```
-*8Stop the Environment**: 
-  ```sh
-  daytona down
-  ```
-**Run a Command**: 
-  ```sh
-  daytona exec <service> <command>
-  ```
-**Check migrations**:
-  ```sh
-  daytona exec django python manage.py showmigrations
-  ```
-
----
 
 ## Usage
 - Create Bookings: Add new courier bookings via the booking form.
@@ -187,13 +94,11 @@ Key Daytona commands:
 - Manage Deliveries: Track and update delivery statuses.
 
 ## Contributing
-- Contributions are welcome! To contribute:
-
-## Fork the repository.
-- Create a feature branch (git checkout -b feature-name).
-- Commit your changes (git commit -m 'Add some feature').
-- Push to the branch (git push origin feature-name).
-- Open a pull request.
+- Fork the repository.
+- Create a Feature Branch: git checkout -b feature-name
+- Commit Your Changes: git commit -m 'Description of changes'
+- Push the Branch: git push origin feature-name
+- Open a Pull Request
 
 ## License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
