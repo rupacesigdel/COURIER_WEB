@@ -2,7 +2,7 @@
   "name": "Courier Management System",
   "build": {
     "dockerfile": "Dockerfile",
-    "context": ".."
+    "context": "."
   },
   "customizations": {
     "vscode": {
