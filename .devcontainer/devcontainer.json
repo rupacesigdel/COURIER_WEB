@@ -1,19 +1,26 @@
 {
-  "name": "Courier Management System",
-  "build": {
-    "dockerfile": "Dockerfile",
-    "context": "."
+  "name": "Courier Management System Django Development",
+  "image": "mcr.microsoft.com/devcontainers/python:3.12", 
+  "features": {
+    "python": "3.12"
   },
+  "forwardPorts": [8000],
+  "workspaceFolder": "/workspace/COURIER_WEB",  
   "customizations": {
     "vscode": {
-      "extensions": [
-        "ms-python.python",
-        "ms-python.vscode-pylance",
-        "ms-azuretools.vscode-docker"
-      ]
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "python.linting.enabled": true,
+        "python.linting.pylintEnabled": true,
+        "python.formatting.autopep8Path": "/usr/local/py-utils/bin/autopep8",
+        "python.formatting.blackPath": "/usr/local/py-utils/bin/black",
+        "python.formatting.yapfPath": "/usr/local/py-utils/bin/yapf",
+        "python.linting.mypyPath": "/usr/local/py-utils/bin/mypy",
+        "python.linting.flake8Path": "/usr/local/py-utils/bin/flake8"
+      },
+      "extensions": ["ms-python.python", "ms-python.vscode-pylance"]
     }
   },
-"postCreateCommand": "if [ -f requirements.txt ]; then pip install -r requirements.txt && python manage.py migrate; fi",
-  "forwardPorts": [8000],
-  "workspaceFolder": "/workspace"
+  "postCreateCommand": "pip install -r requirements.txt && python manage.py migrate",
+  "remoteUser": "vscode"
 }
