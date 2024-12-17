@@ -10,7 +10,7 @@
 - [Features](#features)
 - [Demo Video](#demo-video)
 - [Usage](#usage)
-- [Dependencies](#dependencies)
+- [Tech Stack](#tech-stack)
 - [Contributing](#contributing)
 - [License](#license)
 - [Acknowledgments](#acknowledgments)
@@ -31,7 +31,7 @@
 - Responsive Design: Works seamlessly on desktops, tablets, and mobile devices.
 - Environment Management with Daytona: Simplifies development and deployment with pre-configured containerized environments.
 
-## Dependencies
+## Tech Stack
 - Frontend: HTML5, CSS3, Bootstrap
 - Backend: Python 3.9+, Django Framework
 - Database: PostgreSQL / SQLite
@@ -61,32 +61,31 @@
 - Flexible and efficient for modern development workflows.
 
 ## Installation
-1. **Clone the Repository**:
-  ```sh
-  git clone https://github.com/rupacesigdel/COURIER_WEB.git
-  cd COURIER_WEB
-  ```
-2. **Install Daytona**:
-Run the following command to install Daytona:
 
-  ```sh
-  curl -fsSL https://get.daytona.dev | bash
-  ```
-3. **Create the Daytona Environment**:
+1. **Create the Daytona Environment**:
 Initialize the project directly with Daytona:
   ```sh
-  daytona create https://github.com/rupacesigdel/COURIER_WEB.git
+    daytona create https://github.com/rupacesigdel/COURIER_WEB.git
   ```
-4. **Start the Environment**:
+2. **Create the .env file:**
   ```sh
-  daytona up
+    python -m venv .env
+
+    .env\Scripts\activate
   ```
-5. **Run the Application: Start the Django server:**:
+  Update the .env file with:
+  ```
+  GOOGLE_MAPS_API_KEY=your_google_maps_api_key_here
+  ```
+3. **Run the Application: Start the Django server:**:
    ```sh
    python manage.py runserver
    ```
-6. **Access the Application**:
-Visit http://localhost:8000 in your browser.
+4. **Access the Application**:
+Open your browser and navigate to:
+```sh
+http://localhost:8000
+```
 
 ---
 
