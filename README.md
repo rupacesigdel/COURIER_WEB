@@ -90,11 +90,20 @@ http://localhost:8000
 - Manage Deliveries: Track and update delivery statuses.
 
 ## Contributing
-- Fork the repository.
-- Create a Feature Branch: git checkout -b feature-name
-- Commit Your Changes: git commit -m 'Description of changes'
-- Push the Branch: git push origin feature-name
-- Open a Pull Request
+- **Fork the repository.**
+- **Create a Feature Branch:**
+  ```sh
+   git checkout -b feature-name
+  ```
+- **Commit Your Changes:**
+  ```sh
+   git commit -m 'Description of changes'
+  ```
+- **Push the Branch**:
+  ```sh
+   git push origin feature-name
+  ```
+- **Open a Pull Request**
 
 ## License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
