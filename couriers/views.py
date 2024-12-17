@@ -13,12 +13,6 @@ from .forms import CustomsClearanceExportForm, CustomsClearanceImportForm
 from .models import Booking, CustomsClearanceExport, CustomsClearanceImport
 from .forms import LastMileDeliveryForm
 from .models import LastMileDelivery, Booking
-from django.conf import settings
-
-def my_view(request):
-    return render(request, 'my_template.html', {
-        'GOOGLE_MAPS_API_KEY': settings.GOOGLE_MAPS_API_KEY
-    })
 
 class OrderListView(ListCreateAPIView):
     permission_classes = [IsAuthenticated]
