@@ -68,12 +68,12 @@ Initialize the project directly with Daytona:
     daytona create https://github.com/rupacesigdel/COURIER_WEB.git
   ```
 2. **Create the .env file:**
-3. 
-4. **Run the Application: Start the Django server:**:
+
+3. **Run the Application: Start the Django server:**:
    ```sh
    python manage.py runserver
    ```
-5. **Access the Application**:
+4. **Access the Application**:
 Open your browser and navigate to:
 ```sh
 http://localhost:8000
