@@ -69,8 +69,6 @@ Initialize the project directly with Daytona:
   ```
 2. **Create the .env file:**
   ```sh
-    python -m venv .env
-
     .env\Scripts\activate
   ```
   Update the .env file with:
