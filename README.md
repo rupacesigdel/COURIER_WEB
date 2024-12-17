@@ -68,6 +68,7 @@ Initialize the project directly with Daytona:
     daytona create https://github.com/rupacesigdel/COURIER_WEB.git
   ```
 2. **Create the .env file:**
+- Get the API key and set it in the GOOGLE_MAPS_API_KEY environment variable.
 
 3. **Run the Application: Start the Django server:**:
    ```sh
