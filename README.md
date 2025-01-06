@@ -14,7 +14,7 @@
 - [Contributing](#contributing)
 - [License](#license)
 - [Acknowledgments](#acknowledgments)
-- [Tutorial/Article](#tutorial/article)
+- [Tutorial Article](#tutorial-article)
 
 ---
 
@@ -108,7 +108,9 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ---
 
-## Tutorial/Article
-Check out the [tutorial](<>) where I share my experience and guide others on using Daytona effectively.
+## Tutorial Article
+Check out the [tutorial](https://github.com/rupacesigdel/COURIER_WEB/blob/main/DAYTONA_ARTICLE_TUTORIAL.md) where I share my experience and guide others on using Daytona effectively.
+
+---
 
 Feel free to customize this `README.md` file according to your project's specific details and requirements.
